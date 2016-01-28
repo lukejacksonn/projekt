@@ -5,7 +5,7 @@ const LoginService = Service.extend({
 	},
 	tryLogin(details) {
 		console.log(details);
-    if (Math.random() > 0.5) this.loginError('jhbjhbjhb');
+    if (Math.random() > 0.6) this.loginError('jhbjhbjhb');
 	},
   loginSuccess() {
     this.trigger('success');
