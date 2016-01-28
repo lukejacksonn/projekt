@@ -1,9 +1,9 @@
-import Orchestra from 'orchestra';
+import {LayoutView} from 'orchestra';
 import Template from './template.hbs';
-
-import LoginWidget from '../widget';
-
-export default Orchestra.LayoutView.extend({
+//Page Widgets
+import LoginWidget from '../../widget/login';
+//Page Layout
+export default LayoutView.extend({
   tagName: 'home-page',
   template: Template,
   regions: {

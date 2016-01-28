@@ -1,2 +1,2 @@
-var Application = require('./src/index');
+import Application from './src/index';
 export default new Application();

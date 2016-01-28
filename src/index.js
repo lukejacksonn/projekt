@@ -1,10 +1,9 @@
-import Orchestra from 'orchestra';
+import {Application} from 'orchestra';
 
-import View from './page';
-import Service from './service';
+import View from './page/home';
+import Service from './service/login';
 
-module.exports =
-Orchestra.Application.extend({
+export default Application.extend({
   el: 'body',
   template: false,
   regions: {
