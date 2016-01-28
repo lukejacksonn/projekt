@@ -4,8 +4,8 @@ import Template from './template.hbs';
 import LoginService from '../../service/login';
 // Widget Layout
 export default LayoutView.extend({
-	tagName: 'login-widget',
-	template: Template,
+  tagName: 'login-widget',
+  template: Template,
   initialize() {
     // Listen for triggers
     LoginService.on('error', this.loginError, this);
