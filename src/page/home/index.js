@@ -1,15 +1,23 @@
-import {LayoutView} from 'orchestra';
+import {View} from 'orchestra';
 import Template from './template.hbs';
-//Page Widgets
-import LoginWidget from '../../widget/login';
-//Page Layout
-export default LayoutView.extend({
+
+// Import Widgets
+import PromoWidget from '../../widget/promo';
+import GamesWidget from '../../widget/games';
+
+// Generate View
+export default View.extend({
   tagName: 'home-page',
   template: Template,
   regions: {
-    login: '#login-widget'
+    promo: 'promo-widget',
+    games: 'games-widget',
   },
-  onShow() {
-    this.login.show(new LoginWidget());
-  }
+  onAttach() {
+
+    // Show Child Views
+    this.showChildView('promo', new PromoWidget(), { replaceElement: true });
+    this.showChildView('games', new GamesWidget(), { replaceElement: true });
+
+  },
 });

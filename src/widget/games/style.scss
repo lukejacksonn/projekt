@@ -1,0 +1,11 @@
+games-widget {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 1rem 0 0 1rem;
+
+	svg {
+		flex: 360px;
+		background: #fff;
+		margin: 0 1rem 1rem 0;
+	}
+}

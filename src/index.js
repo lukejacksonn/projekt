@@ -1,16 +1,32 @@
-import {Application} from 'orchestra';
+import {View} from 'orchestra';
 
-import View from './page/home';
-import Service from './service/login';
+// Import Services
+import DialogService from './service/dialog';
+import LoginService from './service/login';
 
-export default Application.extend({
+// Import Pages
+import HomePageView from './page/home';
+
+// Import Behaviours
+import DialogBehavior from './behavior/dialog';
+
+export default View.extend({
   el: 'body',
   template: false,
   regions: {
     main: 'main',
+    dialog: 'dialog',
+  },
+  behaviors: {
+    dialog: { behaviorClass: DialogBehavior }
   },
   initialize() {
-    Service.setup();
-    this.main.show(new View());
-  }
+
+    // Setup Services
+    LoginService.setup();
+    DialogService.setup(this);
+
+    // Show default page
+    this.showChildView('main', new HomePageView());
+  },
 });

@@ -1,31 +1,38 @@
-import {LayoutView, Syphon} from 'orchestra';
+import {View, Syphon} from 'orchestra';
 import Template from './template.hbs';
-// Widget Services
+
+// Import Services
 import LoginService from '../../service/login';
-// Widget Layout
-export default LayoutView.extend({
+import DialogService from '../../service/dialog';
+
+// Import Widgets
+import RegisterWidget from '../register';
+
+export default View.extend({
   tagName: 'login-widget',
   template: Template,
   initialize() {
-    // Listen for triggers
-    LoginService.on('error', this.loginError, this);
+    this.listenTo(LoginService, 'error', this.loginError);
   },
   ui: {
-    'error': '.error'
+    'error': '.error',
+    'register': '.register',
   },
   events: {
-    'submit form': 'login'
+    'submit form': 'login',
+    'click @ui.register': 'register',
   },
   login(e) {
     e.preventDefault();
-    // Get data from form inputs and submit request
+    this.ui.error.text('');
     let details = Syphon.serialize(this);
     LoginService.request('login', details);
-    // Reset error text
-    this.ui.error.text('');
+  },
+  register(e) {
+    e.preventDefault();
+    DialogService.request('show', new RegisterWidget());
   },
   loginError(message) {
-    // Output error text to user
     this.ui.error.text(message);
   }
 });
