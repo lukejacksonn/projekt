@@ -24,9 +24,7 @@ export default CollectionView.extend({
     });
   },
   sortBy(options) {
-    this.collection.comparator = function (item) {
-      return item.get(options.key);
-    };
+    this.collection.comparator = (item) => item.get(options.key);
     this.collection.sort();
   },
 });
