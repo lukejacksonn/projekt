@@ -1,4 +1,4 @@
-import {View} from 'orchestra';
+import { View } from 'orchestra';
 import Template from './template.hbs';
 
 import Filter from './filter';
@@ -8,8 +8,8 @@ export default View.extend({
   tagName: 'games-widget',
   template: Template,
   regions: {
-    'filter': 'filter-',
-    'list': 'list-',
+    filter: 'filter-',
+    list: 'list-',
   },
   childViewEvents: {
     filterBy: 'filterListBy',

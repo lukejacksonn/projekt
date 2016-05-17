@@ -1,11 +1,12 @@
-import {Behavior} from 'orchestra';
+import { Behavior } from 'orchestra';
 
 export default Behavior.extend({
   events: {
-    'click dialog': 'emptyDialog'
+    'click dialog': 'empty',
+    keydown: 'empty',
   },
-  emptyDialog(e) {
-    if (e.target.tagName === 'DIALOG') {
+  empty(e) {
+    if (e.target.tagName === 'DIALOG' || e.keyCode === 27) {
       this.view.getRegion('dialog').empty();
     }
   },

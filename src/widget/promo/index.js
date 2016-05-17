@@ -1,4 +1,4 @@
-import {View} from 'orchestra';
+import { View } from 'orchestra';
 import Template from './template.hbs';
 
 // Import Services

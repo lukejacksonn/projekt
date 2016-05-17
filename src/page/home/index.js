@@ -1,4 +1,4 @@
-import {View} from 'orchestra';
+import { View } from 'orchestra';
 import Template from './template.hbs';
 
 // Import Widgets
@@ -14,10 +14,8 @@ export default View.extend({
     games: 'games-widget',
   },
   onAttach() {
-
     // Show Child Views
     this.showChildView('promo', new PromoWidget(), { replaceElement: true });
     this.showChildView('games', new GamesWidget(), { replaceElement: true });
-
   },
 });

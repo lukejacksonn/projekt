@@ -1,4 +1,4 @@
-import {View, Syphon} from 'orchestra';
+import { View, Syphon } from 'orchestra';
 import Template from './template.hbs';
 
 // Import Services
@@ -15,8 +15,8 @@ export default View.extend({
     this.listenTo(LoginService, 'error', this.loginError);
   },
   ui: {
-    'error': '.error',
-    'register': '.register',
+    error: '.error',
+    register: '.register',
   },
   events: {
     'submit form': 'login',
@@ -25,7 +25,7 @@ export default View.extend({
   login(e) {
     e.preventDefault();
     this.ui.error.text('');
-    let details = Syphon.serialize(this);
+    const details = Syphon.serialize(this);
     LoginService.request('login', details);
   },
   register(e) {
@@ -34,5 +34,5 @@ export default View.extend({
   },
   loginError(message) {
     this.ui.error.text(message);
-  }
+  },
 });

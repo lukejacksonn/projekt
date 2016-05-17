@@ -1,4 +1,4 @@
-import {CollectionView, Collection} from 'orchestra';
+import { CollectionView, Collection } from 'orchestra';
 
 import Item from '../item';
 
@@ -19,9 +19,8 @@ export default CollectionView.extend({
     this.collection = new Collection(games);
   },
   filterBy(options) {
-    this.setFilter(function(child) {
-      return child.get(options.key) === options.val;
-    });
+    this.setFilter(child =>
+      child.get(options.key) === options.val);
   },
   sortBy(options) {
     this.collection.comparator = (item) => item.get(options.key);

@@ -1,4 +1,4 @@
-import {Service} from 'orchestra';
+import { Service } from 'orchestra';
 const DialogService = Service.extend({
   setup(view) {
     this.view = view;

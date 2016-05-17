@@ -1,4 +1,4 @@
-import {View} from 'orchestra';
+import { View } from 'orchestra';
 
 // Import Services
 import DialogService from './service/dialog';
@@ -18,10 +18,9 @@ export default View.extend({
     dialog: 'dialog',
   },
   behaviors: {
-    dialog: { behaviorClass: DialogBehavior }
+    dialog: { behaviorClass: DialogBehavior },
   },
   initialize() {
-
     // Setup Services
     LoginService.setup();
     DialogService.setup(this);

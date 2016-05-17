@@ -1,4 +1,4 @@
-import {View} from 'orchestra';
+import { View } from 'orchestra';
 import Template from './template.hbs';
 
 export default View.extend({
@@ -11,11 +11,11 @@ export default View.extend({
   },
   requestFilterBy(e) {
     this.triggerMethod('filterBy',
-      e.currentTarget.dataset['filter']);
+      e.currentTarget.dataset.filter);
   },
   requestSortBy(e) {
     this.triggerMethod('sortBy',
-      e.currentTarget.dataset['sort']);
+      e.currentTarget.dataset.sort);
   },
   requestRemoveFilter() {
     this.triggerMethod('removeFilter');

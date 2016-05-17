@@ -12,7 +12,8 @@
     "bundle": "browserify -t babelify -t hbsfy main.js -o dist/bundle.js -p [ parcelify -o dist/bundle.css -t sass-css-stream -d ./src ]",
     "watch": "watchify -t babelify -t hbsfy main.js -o dist/bundle.js -p [ parcelify -wo dist/bundle.css -t sass-css-stream -d ./src ]",
     "serve": "node server",
-    "store": "find dist/*.* -exec azure storage blob upload {} project {} \\;"
+    "store": "echo storing",
+    "lint": "eslint ./src --fix"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.1.2",
@@ -20,6 +21,11 @@
     "babelify": "^7.2.0",
     "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.1.1",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.4.1",
     "parallelshell": "^2.0.0",
