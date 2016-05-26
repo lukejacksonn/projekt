@@ -9,8 +9,8 @@
     "develop": "npm run build && parallelshell 'npm run watch' 'npm run serve'",
     "deploy": "npm run build && npm run store",
     "index": "rm -rf dist && mkdir dist && cp index.html dist/index.html",
-    "bundle": "browserify -t babelify -t hbsfy main.js -o dist/bundle.js -p [ parcelify -o dist/bundle.css -t sass-css-stream -d ./src ]",
-    "watch": "watchify -t babelify -t hbsfy main.js -o dist/bundle.js -p [ parcelify -wo dist/bundle.css -t sass-css-stream -d ./src ]",
+    "bundle": "browserify -t babelify -t hbsfy main.js -o dist/bundle.js -p [ parcelify -o dist/bundle.css -t parcelify-import-resolver -t sass-css-stream -d ./src ]",
+    "watch": "watchify -t babelify -t hbsfy main.js -o dist/bundle.js -p [ parcelify -wo dist/bundle.css -t parcelify-import-resolver -t sass-css-stream -d ./src ]",
     "serve": "node server",
     "store": "echo storing",
     "lint": "eslint ./src --fix"

@@ -17,13 +17,13 @@ export default View.extend({
     login: '.login',
   },
   events: {
-    'submit form': 'register',
+    'submit form': 'submit',
     'click @ui.login': 'login',
   },
   initialize() {
     this.listenTo(RegisterService, 'error', this.registerError);
   },
-  register(e) {
+  submit(e) {
     e.preventDefault();
     this.ui.error.text('');
     const data = Syphon.serialize(this);

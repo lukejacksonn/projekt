@@ -1,7 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+@import "!resolve(app/mixins.scss)";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -46,14 +43,19 @@ table {
 	border-spacing: 0;
 }
 dialog {
+	background: rgba(0,0,0,0.5);
+	border: 0;
+	display: flex;
+	height: 100vh;
+	left: 0;
 	position: fixed;
 	top: 0;
-	left: 0;
 	width: 100vw;
-	height: 100vh;
-	display: flex;
-	background: rgba(0,0,0,0.5);
-	> * { margin: auto; }
+	overflow-y: auto;
+	> * {
+		margin: auto;
+		width: 25rem;
+	}
 	&:empty { z-index: -1; }
 }
 svg {
@@ -61,151 +63,63 @@ svg {
   preserveAspectRatio: none;
 }
 
-/*
--- Window
-*/
+//-------------------------------
+// Document
+//-------------------------------
 
-* { box-sizing: border-box; }
-
-[vh] { min-height: 100vh; }
-[vw] { min-width: 100vw; }
-
-/*
--- Containers
-*/
-
-[row] {
-  display: flex;
-  flex-direction: row;
+* {
+	box-sizing: border-box;
+	background: dark(0);
+	width: 100%;
 }
 
-[col] {
-  display: flex;
-  flex-direction: column;
+html {
+  font-size: calc(10px + .5vw);
+  background: #fff;
 }
 
-[wrap] { flex-wrap: wrap; }
+body {
+  margin: 0 auto;
+  background: dark(0);
+}
 
-[fg]   { flex-grow: 1; }
-[fgn]  { flex-grow: 0; }
-[fs]   { flex-shrink: 1; }
-[fsn]  { flex-shrink: 0; }
+button,
+input {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid dark(2);
+  background: dark(0.5);
+  outline: none;
+  max-width: 35ex;
 
-/*
--- Single Axis Alignment
-*/
+  &[compact] {
+    font-size: 1rem;
+    padding: 1rem;
+  }
 
-[ais]  { align-items: stretch; }
-[aifs] { align-items: flex-start; }
-[aic]  { align-items: center; }
-[aife] { align-items: flex-end; }
-[aib]  { align-items: baseline; }
+  &[relaxed] {
+    font-size: 2rem;
+    padding: 2rem;
+  }
+}
 
-/*
--- Multi Axis Alignment
-*/
+label {
+  @include stack(col, .5rem);
+  max-width: 35ex;
+  font-size: 1.5rem;
 
-[acsb] { align-content: space-between; }
-[acfs] { align-content: flex-start; }
-[acc]  { align-content: center; }
-[acfe] { align-content: flex-end; }
-[acsa] { align-content: space-around; }
+  &[no-text] {
+    @include stack(col);
+    span {
+      display: none;
+    }
+  }
 
-/*
--- Item Alignment
-*/
+  &[compact] {
+    font-size: 1rem;
+  }
 
-[ass]  { align-self: stretch; }
-[asfs] { align-self: flex-start; }
-[asc]  { align-self: center; }
-[asfe] { align-self: flex-end; }
-[asb]  { align-self: baseline; }
-
-/*
--- Content Justification
-*/
-
-[jcsb] { justify-content: space-between; }
-[jcfs] { justify-content: flex-start; }
-[jcc]  { justify-content: center; }
-[jcfe] { justify-content: flex-end; }
-[jcsa] { justify-content: space-around; }
-
-/*
--- Text Alignment
-*/
-
-[tal] { text-align: left; }
-[tac] { text-align: center; }
-[tar] { text-align: right; }
-
-/*
--- Margins
-*/
-
-[m] { margin: 1rem; }
-
-[mt] { margin-top: 1rem; }
-[mr] { margin-right: 1rem; }
-[mb] { margin-bottom: 1rem; }
-[ml] { margin-left: 1rem; }
-
-[mn] { margin: 0; }
-
-[mtn] { margin-top: 0; }
-[mrn] { margin-right: 0; }
-[mbn] { margin-bottom: 0; }
-[mln] { margin-left: 0; }
-
-[ma] { margin: auto; }
-
-[mta] { margin-top: auto; }
-[mra] { margin-right: auto; }
-[mba] { margin-bottom: auto; }
-[mla] { margin-left: auto; }
-
-/*
--- Padding
-*/
-
-[p] { padding: 1rem; }
-
-[pt] { padding-top: 1rem; }
-[pr] { padding-right: 1rem; }
-[pb] { padding-bottom: 1rem; }
-[pl] { padding-left: 1rem; }
-
-[pn] { padding: 0; }
-
-[ptn] { padding-top: 0; }
-[prn] { padding-right: 0; }
-[pbn] { padding-bottom: 0; }
-[pln] { padding-left: 0; }
-
-/*
--- Border
-*/
-
-[b] { border: 1px solid #000; }
-
-[bt] { border-top: 1px solid #000; }
-[br] { border-right: 1px solid #000; }
-[bb] { border-bottom: 1px solid #000; }
-[bl] { border-left: 1px solid #000; }
-
-[bn] { border: 0; }
-
-[btn] { border-top: 0; }
-[brn] { border-right: 0; }
-[bbn] { border-bottom: 0; }
-[bln] { border-left: 0; }
-
-/*
--- Position
-*/
-
-[abs] { position: absolute; }
-[fix] { position: fixed; }
-[rel] { position: relative; }
-
-[trbl] { top: 0; right: 0; bottom: 0; left: 0; }
+  &[relaxed] {
+    font-size: 2rem;
+  }
+}

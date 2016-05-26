@@ -1,6 +1,9 @@
+@import "!resolve(app/mixins.scss)";
+
 register-widget {
-	@extend [col],[abs],[trbl];
+	@include stack(col, 2rem, 2rem);
+	background: #fff;
 	form {
-		@extend [col],[ma];
+		@include stack(col, 1rem, 0);
 	}
 }

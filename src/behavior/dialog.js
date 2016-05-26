@@ -1,4 +1,5 @@
 import { Behavior } from 'orchestra';
+import DialogService from '../service/dialog';
 
 export default Behavior.extend({
   events: {
@@ -7,7 +8,7 @@ export default Behavior.extend({
   },
   empty(e) {
     if (e.target.tagName === 'DIALOG' || e.keyCode === 27) {
-      this.view.getRegion('dialog').empty();
+      DialogService.request('empty');
     }
   },
 });
