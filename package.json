@@ -30,6 +30,7 @@
     "hbsfy": "^2.4.1",
     "parallelshell": "^2.0.0",
     "parcelify": "^2.1.0",
+    "parcelify-import-resolver": "0.0.2",
     "sass-css-stream": "^0.1.6",
     "watchify": "^3.7.0"
   },
