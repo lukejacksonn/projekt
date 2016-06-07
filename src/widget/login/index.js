@@ -33,8 +33,8 @@ export default View.extend({
     'submit form': 'submit',
   },
   submit() {
-    const details = Syphon.serialize(this);
-    LoginService.request('login', details);
+    const data = Syphon.serialize(this);
+    LoginService.request('login', data);
   },
   register(e) {
     e.preventDefault();
